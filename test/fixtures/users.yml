@@ -8,6 +8,5 @@ jason:
   last_name: "Seifer"
   email: "jason@treehouse.com"
   profile_name: "jasonhouse"
-  password: "password"
-  password_confirmation: "password"
+
 
