@@ -6,9 +6,21 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+	    <div class="container">
+	    <a class="navbar-brand" href="#">SOCIAL</a>
+	    <ul class="nav navbar-nav">
+	      <li><%= link_to "All Stastus", statuses_path %></li>
+	    </ul>
+	</div>
+	</nav>
+
+	<div class="container">
+
+		<%= yield %>
+	</div>
 
 </body>
 </html>
