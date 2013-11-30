@@ -4,9 +4,13 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 jason:
-  first_name: "Jason"
-  last_name: "Seifer"
-  email: "jason@treehouse.com"
-  profile_name: "jasonhouse"
+ first_name: "Jason"
+ last_name: "Seifer"
+ email: "jason@treehouse.com"
+ profile_name: "jasonhouse"
 
-
+jim:
+ first_name: "Jim"
+ last_name: "Hoskins"
+ email: "jim@treehouse.com"
+ profile_name: "jimhouse"
