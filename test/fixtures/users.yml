@@ -14,3 +14,9 @@ jim:
  last_name: "Hoskins"
  email: "jim@treehouse.com"
  profile_name: "jimhouse"
+
+mike:
+ first_name: "Mike"
+ last_name: "The Frog"
+ email: "mike@treehouse.com"
+ profile_name: "mikethefrog"
