@@ -29,7 +29,7 @@ class UserFriendshipTest < ActiveSupport::TestCase
 
 	context "#send_request_email" do 
 		setup do 
-			@user_friendship = UserFriendship.create users(:jason), friend: users(:mike)
+			@user_friendship = UserFriendship.create user: users(:jason), friend: users(:mike)
 		end
 
 		should "send an email" do

@@ -19,7 +19,11 @@ Social::Application.routes.draw do
   end
 
 
-  resources :user_friendships
+  resources :user_friendships do
+    member do
+      put :accept
+    end
+  end
 
   resources :statuses
   get 'feed', to: 'statuses#index', as: :feed
