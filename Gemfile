@@ -34,6 +34,7 @@ end
 gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
+gem 'state_machine'
 
 
 

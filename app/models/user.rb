@@ -16,9 +16,13 @@ class User < ActiveRecord::Base
   has_many :friends, through: :user_friendships
 
   def full_name
-  	first_name + " " + last_name
+  	first_name.capitalize + " " + last_name.capitalize
   end
 
+  def to_param
+    profile_name
+  end
+  
   def gravatar_url
     stripped_email = email.strip
     downcased_email = stripped_email.downcase

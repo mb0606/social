@@ -71,6 +71,10 @@ class UserTest < ActiveSupport::TestCase
 
   end
 
+  test "thanks calling to_param on auser returns the profile_name" do
+    assert_equal "jasonhouse", users(:jason).to_param
+  end
+
 end
 
 

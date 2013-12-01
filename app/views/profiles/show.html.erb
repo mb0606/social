@@ -1,6 +1,7 @@
 <div class='page-header'>
 
-	<h1><%= @user.profile_name.capitalize %></h1>
+	<h1><%= @user.full_name %></h1>
+	<%= link_to "Add Friend", new_user_friendship_path(friend_id: @user), class: 'btn btn-default' %>
 
 </div>
 <% if @statuses %>
@@ -8,7 +9,7 @@
 		<div class="well">
 			<%= status.content %>
 			<hr />
-			<%= link_to utime_ago_in_words(status.created_at), status_path(status) %> ago
+			<%= link_to time_ago_in_words(status.created_at), status_path(status) %> ago
 		</div>
 	<%end%>
 <%end%>
