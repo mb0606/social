@@ -6,6 +6,9 @@ gem 'rails', '3.2.14'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development, :test do
 	gem 'sqlite3'
+	gem 'better_errors'
+	gem 'binding_of_caller'
+	gem 'meta_request'
 end
 
 group :test do
@@ -31,6 +34,7 @@ end
 gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
+
 
 
 # To use ActiveModel has_secure_password
