@@ -31,5 +31,7 @@ class User < ActiveRecord::Base
     "http://gravatar.com/avatar/#{hash}"
 
   end
+  def pending_friends
+  end
 
 end
