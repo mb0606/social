@@ -13,7 +13,14 @@ class User < ActiveRecord::Base
 
   has_many :statuses
   has_many :user_friendships
-  has_many :friends, through: :user_friendships
+  has_many :friends, through: :user_friendships,
+                      conditions: {user_friendships: { state: 'accepted'}}
+
+  has_many :pending_user_friendships, class_name: 'UserFriendship',
+                                     foreign_key: :user_id,
+                                     conditions: {state: 'pending'} 
+
+  has_many :pending_friends, through: :pending_user_friendships, source: :friend 
 
   def full_name
   	first_name.capitalize + " " + last_name.capitalize
@@ -31,7 +38,6 @@ class User < ActiveRecord::Base
     "http://gravatar.com/avatar/#{hash}"
 
   end
-  def pending_friends
-  end
+  
 
 end

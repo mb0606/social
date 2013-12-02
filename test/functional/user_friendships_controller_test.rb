@@ -204,41 +204,50 @@ class UserFriendshipsControllerTest < ActionController::TestCase
 			should "redirect to the site root" do
 				assert_redirected_to root_path
 			end
+		end
 
-			context "with a valid friend_id" do
-				setup do 
-					post :create, user_friendship:{friend_id: users(:mike)}
-				end
+		context "successfully" do
+        	should "create two user friendship objects" do
+          		assert_difference 'UserFriendship.count', 2 do
+            		post :create, user_friendship: { friend_id: users(:mike).profile_name }
+          		end
+        	end
+      	end
 
-				should "assign a friend object" do
-					assert assigns(:friend)
-					assert_equal users(:mike), assigns(:friend)
-				end
 
-				should "assign a user_friendship object" do
-					assert assigns(:user_friendship)
-					assert_equal users(:jason), assigns(:user_friendship).user
-					assert_equal users(:mike), assigns(:user_friendship).friend
+		context "with a valid friend_id" do
+			setup do 
+				post :create, user_friendship:{friend_id: users(:mike)}
+			end
 
-				end
-				should "create a friendship" do
-					assert users(:jason).pending_friends.include?(users(:mike))
-				end
+			should "assign a friend object" do
+				assert assigns(:friend)
+				assert_equal users(:mike), assigns(:friend)
+			end
 
-				should "redirect to the profile page of the friend" do
-					assert_response :redirect 
-					assert_redirected_to profile_path(users(:mike))
-				end
-
-				should "set the flash success message" do
-					assert flash[:sucess]
-					assert_equal "You are now friends with #{users(:mike).full_name}", flash[:sucess]
-				end
+			should "assign a user_friendship object" do
+				assert assigns(:user_friendship)
+				assert_equal users(:jason), assigns(:user_friendship).user
+				assert_equal users(:mike), assigns(:user_friendship).friend
 
 			end
+			should "create a friendship" do
+				assert users(:jason).pending_friends.include?(users(:mike))
+			end
+
+			should "redirect to the profile page of the friend" do
+				assert_response :redirect 
+				assert_redirected_to profile_path(users(:mike))
+			end
+
+			should "set the flash success message" do
+				assert flash[:sucess]
+				assert_equal "Friend request sent.", flash[:sucess]
+			end
+
 		end
 	end
-end
+
 
 
 
